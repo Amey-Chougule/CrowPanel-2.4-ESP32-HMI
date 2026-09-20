@@ -10,7 +10,7 @@ The images are used throughout the repository for hardware identification, mecha
 
 ### FR01 — Front View
 
-![CrowPanel 2.4-inch ESP32 HMI Front View](FR01.jpg)
+![CrowPanel 2.4-inch ESP32 HMI Front View](FR01.JPG)
 
 **File:** `FR01.jpg`
 
@@ -20,7 +20,7 @@ Front view of the CrowPanel 2.4-inch ESP32 HMI showing the 2.4-inch TFT touchscr
 
 ### FR02 — Mechanical Dimensions
 
-![CrowPanel 2.4-inch ESP32 HMI Dimensions](FR02.jpg)
+![CrowPanel 2.4-inch ESP32 HMI Dimensions](FR02.JPG)
 
 **File:** `FR02.jpg`
 
