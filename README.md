@@ -1,14 +1,79 @@
-# Elecrow 2.4-inch ESP32 HMI
+# CrowPanel 2.4-inch ESP32 HMI
 
-![ESP32 HMI](assets/images/elecrow-2.4-hmi.jpg)
+A technical development repository for the **Elecrow CrowPanel 2.4-inch
+ESP32 HMI Display**, covering hardware documentation, firmware examples,
+display and touchscreen interfaces, peripheral communication, LVGL
+applications, and embedded HMI projects.
 
-A collection of hardware documentation, Arduino examples, HMI projects,
-LVGL interfaces and embedded applications for the Elecrow CrowPanel
-2.4-inch ESP32 HMI Display.
+The platform combines an **ESP32-WROOM-32-N4** with a 2.4-inch
+320 × 240 TFT display, resistive touchscreen, Wi-Fi, Bluetooth,
+TF card storage, UART, I²C, GPIO and audio interfaces.
 
-The platform combines an ESP32-WROOM-32 microcontroller with a
-2.4-inch 320×240 TFT display, resistive touchscreen, Wi-Fi, Bluetooth,
-TF card storage and multiple peripheral interfaces.
+---
+
+## Hardware Overview
+
+### Front View
+
+The front side of the module integrates the **2.4-inch 320 × 240 TFT
+touchscreen** along with the ESP32 controller board.
+
+<p align="center">
+  <img src="images/FR01.jpg" alt="Elecrow 2.4-inch ESP32 HMI Front View" width="600">
+</p>
+
+<p align="center">
+  <b>FR01 — Front View of the Elecrow 2.4-inch ESP32 HMI</b>
+</p>
+
+---
+
+### Mechanical Dimensions
+
+The module has an approximate overall mechanical dimension of:
+
+**78 mm × 51 mm**
+
+The image below provides the reference width and height measurements.
+
+<p align="center">
+  <img src="images/FR02.jpg" alt="Elecrow 2.4-inch ESP32 HMI Dimensions" width="600">
+</p>
+
+<p align="center">
+  <b>FR02 — Front View with Mechanical Dimensions</b>
+</p>
+
+---
+
+### PCB Layout
+
+The PCB view provides an overview of the component placement, connectors,
+test points and major circuit sections of the module.
+
+<p align="center">
+  <img src="images/PB01.jpg" alt="Elecrow 2.4-inch ESP32 HMI PCB Layout" width="800">
+</p>
+
+<p align="center">
+  <b>PB01 — PCB Layout and Component Placement</b>
+</p>
+
+---
+
+### Rear / Component View
+
+The rear/component view identifies the major onboard interfaces,
+connectors and user-accessible hardware features including UART,
+I²C, GPIO, battery, TF card, speaker, BOOT and RESET interfaces.
+
+<p align="center">
+  <img src="images/RR01.JPG" alt="Elecrow 2.4-inch ESP32 HMI Rear Component View" width="800">
+</p>
+
+<p align="center">
+  <b>RR01 — Rear View with Connectors and Component Details</b>
+</p>
 
 ---
 
@@ -22,12 +87,12 @@ TF card storage and multiple peripheral interfaces.
 - 320 × 240 resolution
 - ILI9341V display controller
 - Resistive touchscreen
-- Wi-Fi 2.4 GHz
+- 2.4 GHz Wi-Fi
 - Bluetooth
-- TF/microSD card slot
-- UART
-- I²C
-- GPIO
+- TF / microSD card interface
+- UART interface
+- I²C interface
+- GPIO interface
 - Speaker interface
 - Battery interface
 - BOOT button
@@ -36,33 +101,32 @@ TF card storage and multiple peripheral interfaces.
 
 ---
 
-## Hardware
+# Hardware Specifications
 
 | Parameter | Specification |
 |---|---|
 | MCU | ESP32-WROOM-32-N4 |
-| CPU | Dual-core LX6 |
-| Frequency | Up to 240 MHz |
+| CPU | Dual-core Xtensa LX6 |
+| Maximum Frequency | 240 MHz |
 | Flash | 4 MB |
-| Display | 2.4" TFT LCD |
+| Display | 2.4-inch TFT LCD |
 | Resolution | 320 × 240 |
-| Display Driver | ILI9341V |
+| Display Controller | ILI9341V |
 | Touch | Resistive |
-| Wi-Fi | 2.4 GHz 802.11 b/g/n |
-| Bluetooth | Bluetooth |
+| Wireless | 2.4 GHz Wi-Fi + Bluetooth |
 | Storage | TF / microSD |
 | USB | USB / USB-C |
 | Battery Input | 3.7–4.2 V |
-| Speaker | Supported |
-| Dimensions | Approximately 78 × 51 mm |
+| Audio | Speaker interface |
+| Dimensions | Approx. 78 × 51 mm |
 
 ---
 
 # Pinout
 
-## Display
+## Display Interface
 
-The display uses SPI communication.
+The TFT display uses an SPI interface.
 
 | Function | ESP32 GPIO |
 |---|---:|
@@ -74,17 +138,19 @@ The display uses SPI communication.
 | TFT RESET | -1 |
 | TFT Backlight | GPIO27 |
 
-## Touch
+---
+
+## Touch Interface
+
+The resistive touchscreen uses the SPI bus shared with the display.
 
 | Function | ESP32 GPIO |
 |---|---:|
 | Touch CS | GPIO33 |
 | Touch IRQ | GPIO36 |
-| Touch SPI Clock | GPIO14 |
+| Touch SCLK | GPIO14 |
 | Touch MOSI | GPIO13 |
 | Touch MISO | GPIO12 |
-
-> Touch uses the SPI bus shared with the display.
 
 ---
 
@@ -92,72 +158,84 @@ The display uses SPI communication.
 
 ### UART1
 
-| Signal | GPIO |
+UART1 is available through the dedicated 4-pin connector.
+
+| Signal | ESP32 GPIO |
 |---|---:|
 | RX | GPIO16 |
 | TX | GPIO17 |
 
-Connector:
-
-`UART1`
+**Connector:** `UART1`
 
 ---
 
 ## I²C
 
-| Signal | GPIO |
+The dedicated I²C connector provides access to external sensors,
+peripherals and expansion modules.
+
+| Signal | ESP32 GPIO |
 |---|---:|
 | SDA | GPIO22 |
 | SCL | GPIO21 |
 
-Connector:
-
-`I2C`
+**Connector:** `I2C`
 
 ---
 
 ## GPIO
 
-The GPIO connector provides:
+The GPIO-D connector provides two general-purpose digital I/O lines.
 
-| GPIO |
-|---:|
-| GPIO25 |
-| GPIO32 |
+| Signal | ESP32 GPIO |
+|---|---:|
+| GPIO-D1 | GPIO25 |
+| GPIO-D2 | GPIO32 |
 
-Connector:
-
-`GPIO_D`
+**Connector:** `GPIO_D`
 
 ---
 
 ## Speaker
 
-| Function | GPIO |
+The board provides a dedicated speaker output connected to an onboard
+audio amplifier circuit.
+
+| Function | ESP32 GPIO |
 |---|---:|
 | Speaker | GPIO26 |
 
-The board includes an onboard amplifier circuit.
+**Connector:** `SPK`
 
 ---
 
-## TF / microSD
+## TF / microSD Card
 
-The TF card interface uses SPI.
+The TF card interface uses SPI communication.
 
-| Signal | GPIO |
+| Signal | ESP32 GPIO |
 |---|---:|
 | MOSI | GPIO23 |
 | MISO | GPIO19 |
 | SCLK | GPIO18 |
 | CS | GPIO5 |
 
+The TF card can be used for:
+
+- Image storage
+- Configuration files
+- Data logging
+- HMI assets
+- Fonts
+- Application data
+
 ---
 
 # Software Support
 
-This repository primarily focuses on Arduino development, but the
-hardware can also be used with:
+This repository primarily focuses on **Arduino-based development**, but
+the hardware can also be used with multiple embedded software
+frameworks and platforms.
 
 - Arduino IDE
 - PlatformIO
@@ -171,40 +249,15 @@ hardware can also be used with:
 
 # Arduino Libraries
 
-Recommended libraries:
-
-- Adafruit GFX
-- Adafruit ILI9341
-- XPT2046 Touch
-- SD
-- SPI
-- Wire
-- WiFi
-- Bluetooth
-- LVGL
-
----
-
-# Getting Started
-
-## 1. Install Arduino IDE
-
-Install the Arduino IDE and add ESP32 board support.
-
-Select:
-
-`ESP32 Dev Module`
-
----
-
-## 2. Install Libraries
-
-Install the required display and touch libraries using the Arduino
-Library Manager.
-
-Example:
+Recommended libraries for the examples in this repository:
 
 ```text
 Adafruit GFX Library
 Adafruit ILI9341
 XPT2046_Touchscreen
+SD
+SPI
+Wire
+WiFi
+Bluetooth
+LVGL
