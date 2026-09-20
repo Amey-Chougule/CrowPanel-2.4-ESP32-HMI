@@ -26,7 +26,7 @@ The example demonstrates:
 
 The example displays a complete HMI boot sequence, including the system boot screen, initialization progress, system-ready screen, and the final HMI control interface.
 
-![System Boot Animation](boot_animation.png)
+![Boot Animation](boot_animation.png)
 
 The image above shows the different stages of the system boot and HMI initialization sequence.
 
