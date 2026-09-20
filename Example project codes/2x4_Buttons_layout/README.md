@@ -28,7 +28,7 @@ Each button can be pressed to toggle its state:
 - **Red** → OFF
 - **Green** → ON
 
-![2x4 Button HMI](./2x4_button.png)
+![2x4 Button HMI](2x4_button.png)
 
 The image above shows the touchscreen button interface running on the CrowPanel display.
 
