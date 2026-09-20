@@ -36,7 +36,7 @@ in landscape orientation.
 
 ## Output
 
-![HELLO WORLD TFT Output](hello_world.jpg)
+![HELLO WORLD TFT Output](hello_world.png)
 
 The display should show **HELLO WORLD** on a black background in landscape orientation.
 
@@ -56,4 +56,4 @@ This is a basic display test intended to verify:
 Hello_World/
 ├── README.md
 ├── Hello_World.ino
-└── hello_world.jpg
+└── hello_world.png
