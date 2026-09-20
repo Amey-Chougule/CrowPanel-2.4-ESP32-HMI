@@ -19,7 +19,7 @@ The front side of the module integrates the **2.4-inch 320 × 240 TFT
 touchscreen** along with the ESP32 controller board.
 
 <p align="center">
-  <img src="images/FR01.jpg" alt="Elecrow 2.4-inch ESP32 HMI Front View" width="600">
+  <img src="images/FR01.JPG" alt="Elecrow 2.4-inch ESP32 HMI Front View" width="600">
 </p>
 
 <p align="center">
@@ -37,7 +37,7 @@ The module has an approximate overall mechanical dimension of:
 The image below provides the reference width and height measurements.
 
 <p align="center">
-  <img src="images/FR02.jpg" alt="Elecrow 2.4-inch ESP32 HMI Dimensions" width="600">
+  <img src="images/FR02.JPG" alt="Elecrow 2.4-inch ESP32 HMI Dimensions" width="600">
 </p>
 
 <p align="center">
